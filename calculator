@@ -1,0 +1,49 @@
+#! /usr/bin/python3
+"""calculator"""
+
+import argparse
+
+
+def main():
+    """main function"""
+    parser = argparse.ArgumentParser(
+        description="calculator"
+    )
+
+    parser.add_argument(
+        "num1",
+        type=int,
+        help="First number (int)"
+    )
+
+    parser.add_argument(
+        "operator",
+        choices=["+", "-", "x", "/"],
+        help="The operators"
+    )
+
+    parser.add_argument(
+        "num2",
+        type=int,
+        help="Second number (int)"
+    )
+
+
+# Parse args and send parsed data to corresponding function
+    args = parser.parse_args()
+    operator = args.operator
+    num1 = args.num1
+    num2 = args.num2
+
+    if operator == "+":
+        print(num1 + num2)
+    elif operator == "-":
+        print(num1 - num2)
+    elif operator == "*":
+        print(num1 * num2)
+    elif operator == "/":
+        print(num1 / num2)
+
+
+if __name__ == "__main__":
+    main()
